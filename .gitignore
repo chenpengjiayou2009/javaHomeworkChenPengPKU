@@ -24,9 +24,9 @@
 hs_err_pid*
 
 # 自己写的一些文件
-demo/**
-out/**
-.idea/**
-TIJ4-exercises/**
-demo.zip
+/demo/**
+/out/**
+/.idea/**
+/TIJ4-exercises/**
+/demo.zip
 
