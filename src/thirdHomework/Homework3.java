@@ -45,33 +45,51 @@ public class Homework3{
     }
     public static void main(String[] args) throws CloneNotSupportedException {
         //   1. testSetdate
+        System.out.println("first question");
         Homework3 h3 = new Homework3();
         h3.SetDate();
-
+        System.out.println("-------------");
         // 2. testAccout
+        System.out.println("second question");
         h3.testAccount();
-
+        System.out.println("--------------");
         // 3. testsortArray
-        int[] l = new int[]{1,2,3};
+        System.out.println("third question");
+        int[] l = new int[]{3,2,1,1};
         ArrayList<Number> list = new ArrayList<>();
         for(int i:l){
             list.add(i);
         }
+        System.out.println("before sort");
+        for(Number i:list){
+            System.out.print(i);
+        }    // 打印排序之后的结果
+        System.out.println("\nafter sort");
         Homework3.sort(list);
         for(Number i:list){
-            System.out.println(i);
+            System.out.print(i);
         }    // 打印排序之后的结果
+        System.out.println("\n---------------");
 
         // 4.testcoloneCourse
+        System.out.println("fourth question");
         Course course = new Course("Java");
         course.addStudent("Eric");
         course.addStudent("Simon");
         Course newCourse = course.clone();
-
+        System.out.println("original course has following students");
+        for(String s:course.getStudents()){
+            if(s!=null){System.out.println(s);}
+        } // 打印克隆之前的课程清单
+        System.out.println("new course has following students");
         for(String s:newCourse.getStudents()){
             if(s!=null){System.out.println(s);}
         } // 打印克隆之后的课程清单
-
+        System.out.println("id(course) == id(newCourse)");
+        System.out.println(System.identityHashCode(course)==System.identityHashCode(newCourse));
+        System.out.println("id(course.students)==id(newCourse.student)");
+        System.out.println(System.identityHashCode(course.getStudents())==System.identityHashCode(newCourse.getStudents()));
+        System.out.println("---------------");
     }
 
 }

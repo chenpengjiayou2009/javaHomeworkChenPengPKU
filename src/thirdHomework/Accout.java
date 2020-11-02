@@ -44,18 +44,21 @@ class Accout {
         return this.balance * monthlyInterestRate;
     }
     public double withDraw(double value){
-        if(value>this.balance){
-            System.out.println("balance is smaller than withdraw");
+        if(value>this.balance){   // 余额不足则返回0并提示
+            System.out.println("balance is less than withdraw");
             return 0;
         }
         else{
+            System.out.println("withdraw " + value);
             this.balance -= value;
+            System.out.println("after withdraw the balance is " + this.balance);
             return value;
         }
     }
     public double deposit(double value){
         this.balance += value;
-        System.out.println("put" + value + "in the account, now the balance is " + this.balance);
+        System.out.println("put" + value + "in the account");
+        System.out.println(" now the balance is " + this.balance);
         return this.balance;
     }
 
