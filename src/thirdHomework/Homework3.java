@@ -63,7 +63,7 @@ public class Homework3{
         System.out.println("before sort");
         for(Number i:list){
             System.out.print(i);
-        }    // 打印排序之后的结果
+        }    // 打印排序之前的结果
         System.out.println("\nafter sort");
         Homework3.sort(list);
         for(Number i:list){
