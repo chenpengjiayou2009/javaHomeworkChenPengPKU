@@ -7,10 +7,11 @@ import java.util.Arrays;
 
 public class SHA1CheckSum {
     // 传入文件夹名和MessageDigest对象地址，在递归过程中不断更新MessageDigest对象的值，最终返回该MessageDigest对象生成的byte[]数组
-    public static byte[] SHA1CheckSum4Dir(String path, MessageDigest complete) throws Exception{
+    public static MessageDigest SHA1CheckSum4Dir(String path, MessageDigest complete) throws Exception{
         byte[] buffer = new byte[1024];
         File dir = new File(path);
         File[] fs = dir.listFiles();
+        if(fs==null){return complete;}
         Arrays.sort(fs); // 将该文件夹按File内置规则进行排序，以保证每次调用该函数都能生成相同的SHA-1 code
         for(File f:fs){
             // if f is a directory
@@ -29,15 +30,15 @@ public class SHA1CheckSum {
             } while(numRead!=-1);
             is.close();
         }
-        return complete.digest();
+        return complete;
     }
 
 
     public static void main(String[] args){
         try{
-            String path = "./empty"; // 用于测试的文件夹名
+            String path = "."; // 用于测试的文件夹名
             MessageDigest complete = MessageDigest.getInstance("SHA-1"); // 用于计算SHA-1 HASHCODE 的 MessageDigest类
-            byte[] sha1 = SHA1CheckSum4Dir(path,complete); // 保存结果
+            byte[] sha1 = SHA1CheckSum4Dir(path,complete).digest(); // 保存结果
 
             String result = "";
             for(int i=0;i<sha1.length;i++){
